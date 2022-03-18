@@ -68,3 +68,4 @@ GRTAGS
 GTAGS
 tags
 *.user
+**/build-*
