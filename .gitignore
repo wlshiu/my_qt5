@@ -67,3 +67,4 @@ GPATH
 GRTAGS
 GTAGS
 tags
+*.user
