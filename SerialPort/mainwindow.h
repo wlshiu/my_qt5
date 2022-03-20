@@ -55,5 +55,7 @@ private:
     Console                 *console;
 
     struct SerialPort_Settings    *settings;
+
+    QStringList             txt_CmdSendHistory;
 };
 #endif // MAINWINDOW_H

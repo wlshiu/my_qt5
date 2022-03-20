@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     settings = new struct SerialPort_Settings;
 
+    txt_CmdSendHistory = QStringList();
+
     /* Replace QObject 'txt_Console' with QObject 'Console' */
     console = new Console(ui->txt_Console->parentWidget());
     console->setEnabled(true);
@@ -192,8 +194,14 @@ void MainWindow::sendData()
         return;
     }
 
+    txt_CmdSendHistory.append(str);
     str.append('\n');
+
     serial->write(str.toLatin1().data());
+
+    txt_CmdSendHistory.removeDuplicates();
+    ui->txt_CmdSend->clear();
+    ui->txt_CmdSend->addItems(txt_CmdSendHistory);
 
     ui->txt_CmdSend->setCurrentIndex(-1);
     ui->txt_CmdSend->setFocus();
