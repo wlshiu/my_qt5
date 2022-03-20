@@ -2,7 +2,7 @@
 ---
 
 + FileBrowser
-+ SerialPort
++ Serial_Port
 + DynamicAddDelWidgets
     > Dynamic add or delete a widget
 
