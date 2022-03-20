@@ -89,7 +89,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_PortNumber">
+           <widget class="QComboBox" name="comboBox_PortName">
             <property name="font">
              <font>
               <family>Consolas</family>
@@ -216,15 +216,14 @@
          <enum>QLayout::SetDefaultConstraint</enum>
         </property>
         <item>
-         <widget class="QLabel" name="label_VendorID">
+         <widget class="QLabel" name="label_Description">
           <property name="font">
            <font>
-            <family>Consolas</family>
             <pointsize>10</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>Vendor ID    :</string>
+           <string>Description  :</string>
           </property>
          </widget>
         </item>
@@ -238,6 +237,19 @@
           </property>
           <property name="text">
            <string>Manufacturer :</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_VendorID">
+          <property name="font">
+           <font>
+            <family>Consolas</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Vendor ID    :</string>
           </property>
          </widget>
         </item>
@@ -291,18 +303,6 @@
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QPushButton" name="btn_ClosePort">
-          <property name="font">
-           <font>
-            <family>Consolas</family>
-           </font>
-          </property>
-          <property name="text">
-           <string>Close Port</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="verticalLayoutWidget_15">
@@ -316,7 +316,7 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_19" stretch="6,1">
         <item>
-         <widget class="QPlainTextEdit" name="text_Console">
+         <widget class="QPlainTextEdit" name="txt_Console">
           <property name="font">
            <font>
             <family>Consolas</family>
@@ -348,7 +348,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="text_CmdSend">
+           <widget class="QComboBox" name="txt_CmdSend">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -2479,7 +2479,7 @@
      <x>0</x>
      <y>0</y>
      <width>819</width>
-     <height>18</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
