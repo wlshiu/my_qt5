@@ -10,9 +10,13 @@ Console::Console(QWidget *parent)
 {
     document()->setMaximumBlockCount(1000);
     QPalette p = palette();
-    p.setColor(QPalette::Base, Qt::black);
+
+//    p.setColor(QPalette::Base, Qt::black);
+    p.setColor(QPalette::Base, QColor(43, 43, 43));
     p.setColor(QPalette::Text, Qt::gray);
     setPalette(p);
+
+    setMouseTracking(true);
 
     QFont font = document()->defaultFont();
     font.setFamily("consolas");
@@ -47,18 +51,18 @@ void Console::keyPressEvent(QKeyEvent *e)
     }
 }
 
-void Console::mousePressEvent(QMouseEvent *e)
-{
-    Q_UNUSED(e)
-    setFocus();
-}
+//void Console::mousePressEvent(QMouseEvent *e)
+//{
+//    Q_UNUSED(e)
+//    setFocus();
+//}
 
-void Console::mouseDoubleClickEvent(QMouseEvent *e)
-{
-    Q_UNUSED(e)
-}
+//void Console::mouseDoubleClickEvent(QMouseEvent *e)
+//{
+//    Q_UNUSED(e)
+//}
 
-void Console::contextMenuEvent(QContextMenuEvent *e)
-{
-    Q_UNUSED(e)
-}
+//void Console::contextMenuEvent(QContextMenuEvent *e)
+//{
+//    Q_UNUSED(e)
+//}
