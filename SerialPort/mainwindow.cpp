@@ -231,6 +231,7 @@ void MainWindow::on_btn_OpenPort_clicked()
 {
     if (ui->btn_OpenPort->text() == "Open Port")
     {
+        updatePortSettings();
         serial->setPortName(settings->name);
         serial->setBaudRate(settings->baudRate);
         serial->setDataBits(settings->dataBits);
