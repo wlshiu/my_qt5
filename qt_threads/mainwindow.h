@@ -4,30 +4,29 @@
 #include <QMainWindow>
 #include <QThread>
 #include <QtCore>
+#include <QQueue>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class MyThread: public QThread
+class ThreadImpl: public QObject
 {
     Q_OBJECT
+
 public:
-    MyThread();
-    ~MyThread();
+    ThreadImpl(QObject* parent = nullptr);
+    ~ThreadImpl();
 
-    virtual void run() override;
+signals:
+    void response(long *pPool);
 
-    void EnterThread();
-    void stop();
-
-    QString     name;
+public slots:
+    void Routine(long *dataPool);
+//    void request(long *dataPool);
 
 private:
-
-    Ui::MainWindow *ui;
-
-    bool        is_exiting;
+    long    *pPool;
 };
 
 class MainWindow : public QMainWindow
@@ -38,12 +37,28 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+signals:
+    void request(long *dataPool);
+
+public slots:
+    void response(long *pPool);
+
 private slots:
-    void on_pushButton_clicked();
+    void on_btnRead_clicked();
+
+    void on_btnWrite_clicked();
 
 private:
     Ui::MainWindow *ui;
 
-    MyThread        *my_thread;
+    QThread        *myThread;
+
+    ThreadImpl     threadImpl;
+
+    long           *dataPool;
+
 };
+
+
+
 #endif // MAINWINDOW_H
