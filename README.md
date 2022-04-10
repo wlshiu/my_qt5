@@ -11,6 +11,9 @@
 + MultiThread
     > use QThread, QMutex, and QQueue
 
++ Timer
+    > use QTimer to display prograss bar
+
 + GuiWithCmdLine
     > Gui Application with command line interface
 
