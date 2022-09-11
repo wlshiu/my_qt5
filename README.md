@@ -23,3 +23,5 @@
 + CmdLine
     > Example of Command-Line Interface
 
++ Gui_with_CLI
+    > Support GUI and CLI interfaces
