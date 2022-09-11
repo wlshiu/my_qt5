@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,3 +14,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+    QString     filePath = QFileDialog::getOpenFileName(this, tr("Open"),
+                                                      QDir::homePath(),
+                                                      tr("*.bin"));
+    if( filePath.isEmpty() )
+        return;
+
+    ui->lineEdit->setText(filePath);
+    return;
+}

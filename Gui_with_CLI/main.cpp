@@ -3,14 +3,16 @@
 #include <QApplication>
 #include <QCoreApplication>
 #include <QDebug>
-
+#include <QTextStream>
+#include <windows.h>
 
 static QString          g_Input;
+
 
 static void
 _usage(QCoreApplication &app)
 {
-    printf("usage: %s <options>\n"
+    qInfo("usage: %s <options>\n"
            "options:\n"
            "  --input      The input file\n"
            "\n",
@@ -56,6 +58,22 @@ _parse_param(QCoreApplication &app)
     return rval;
 }
 
+static void _Show_Console()
+{
+    AllocConsole();
+
+//    FILE    *pFileCon = freopen("CONOUT$", "w", stdout);
+//    COORD   coordInfo;
+
+//    (void)pFileCon;
+//    coordInfo.X = 80;
+//    coordInfo.Y = 900;
+
+//    SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), coordInfo);
+    SetConsoleMode(GetStdHandle(STD_OUTPUT_HANDLE), ENABLE_QUICK_EDIT_MODE | ENABLE_EXTENDED_FLAGS);
+    return;
+}
+
 
 int main(int argc, char *argv[])
 {
@@ -70,13 +88,16 @@ int main(int argc, char *argv[])
     {
         int     rval = 0;
         QCoreApplication    a(argc, argv);
+
+        _Show_Console();
+
         if( (rval = _parse_param(a)) != 0 )
         {
-            printf("Wrong arguments !\n");
+            qInfo("Wrong arguments !\n");
             return rval;
         }
 
-        printf("input : %s\n", qPrintable(g_Input));
+        qInfo("input : %s\n", qPrintable(g_Input));
         return rval;
     }
     return 0;
