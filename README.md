@@ -19,3 +19,7 @@
 
 + Xmodem
     > trasmite data with xmodem
+
++ CmdLine
+    > Example of Command-Line Interface
+
